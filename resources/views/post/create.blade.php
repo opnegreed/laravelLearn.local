@@ -1,12 +1,25 @@
 @extends('layouts.app')
 @section('content')
-
-    <form>
-        <div class="mb-3">
+<div>
+    <form action="{{ route('post.store') }}" method="post">
+        @csrf
+        <div class="form-group">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Title">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <input type="text" name="title" class="form-control" id="title" placeholder="Title">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <div class="form-group">
+            <label for="text" class="form-text">Text</label>
+            <input type="text" name="content" class="form-control" id="text" placeholder="Text">
+        </div>
+
+        <div class="form-group">
+            <label for="image" class="form-image">image</label>
+            <input type="text" name="image" class="form-control" id="image" placeholder="image">
+        </div>
+
+        <button type="submit" class="btn btn-primary">create</button>
     </form>
+
+</div>
 @endsection

@@ -33,6 +33,17 @@ class PostController extends Controller
 
     }
 
+    public function store(){
+        $data = request()->validate([
+            'title' => 'string',
+            'content' => 'string',
+            'image' => 'string',
+        ]);
+        Post::create($data);
+
+        return redirect()->route('post.index');
+    }
+
     public function delete()
     {
         $post = Post::withTrashed()->find(2);
