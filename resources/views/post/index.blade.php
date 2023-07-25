@@ -2,13 +2,12 @@
 @section('content')
     <table class="table">
         @foreach($posts as $post)
-        <thead>
-        <tr>
-            <th scope="col">{{ $post -> id }}</th>
-            <th scope="col">{{ $post -> title }}</th>
-            <th scope="col">{{ $post -> content }}</th>
-        </tr>
-        </thead>
+        <div>
+            <a href="{{ route('post.show', $post->id) }}">
+                {{ $post->id }}. {{ $post->title }}
+            </a>
+        </div>
         @endforeach
     </table>
+    <button type="button" class="btn btn-primary"><a class="nav-link" href="{{ route('post.create') }}">Create new post</a></button>
 @endsection
